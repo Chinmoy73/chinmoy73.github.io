@@ -98,6 +98,21 @@ nav a.active, nav a:hover {
 .bio-section {
     padding: 24px 10vw 0 10vw;
 }
+.biography-text {
+    font-weight: 400;
+    text-align: justify;
+    font-size: 1.12rem;
+    line-height: 1.7;
+    margin-bottom: 14px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #222;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+}
 .bio-section h2 {
     font-size: 1.3rem;
     font-weight: 700;
