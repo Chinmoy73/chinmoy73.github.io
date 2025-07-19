@@ -47,65 +47,7 @@ nav a.active, nav a:hover {
     background: #444;
 }
 
-/* Dropdown Menu Styles */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
 
-.dropdown-toggle {
-    cursor: pointer;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    min-width: 250px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 1000;
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: 2px;
-}
-
-.dropdown-menu a {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border-bottom: 1px solid #f0f0f0;
-    transition: background-color 0.3s ease;
-    margin-left: 0;
-    border-radius: 0;
-    font-weight: 500;
-}
-
-.dropdown-menu a:last-child {
-    border-bottom: none;
-}
-
-.dropdown-menu a:hover {
-    background-color: #f8f9fa;
-    color: #6c7a89;
-}
-
-.dropdown:hover .dropdown-menu,
-.dropdown-menu.show {
-    display: block;
-}
-
-.dropdown:hover .dropdown-toggle {
-    background-color: #555;
-    color: #fff;
-}
-
-/* Ensure dropdown works on click and hover */
-.dropdown-toggle:focus + .dropdown-menu {
-    display: block;
-}
 
 .profile-section {
     display: flex;
@@ -793,22 +735,7 @@ nav a.active, nav a:hover {
         grid-template-columns: 1fr;
     }
     
-    /* Mobile dropdown adjustments */
-    .dropdown-menu {
-        position: fixed;
-        top: 48px;
-        left: 0;
-        right: 0;
-        width: 100%;
-        min-width: auto;
-        border-radius: 0;
-        margin-top: 0;
-    }
-    
-    .dropdown-menu a {
-        padding: 16px 20px;
-        font-size: 1.1rem;
-    }
+
 }
 
 .education-description {
