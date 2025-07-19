@@ -149,10 +149,113 @@ nav a.active, nav a:hover {
     text-align: justify;
 }
 
+/* Education Banner */
+.education-banner {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    padding: 60px 10vw;
+    margin-top: 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.banner-text h1 {
+    color: #fff;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.banner-line {
+    width: 80px;
+    height: 4px;
+    background: #00bcd4;
+    margin-top: 16px;
+}
+
+.banner-graphics {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.graduation-cap {
+    position: relative;
+    width: 60px;
+    height: 40px;
+}
+
+.cap-base {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 8px;
+    background: #000;
+    border-radius: 2px;
+}
+
+.cap-top {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: 44px;
+    height: 20px;
+    background: #000;
+    border-radius: 4px 4px 0 0;
+}
+
+.tassel {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 25px;
+    background: #ffeb3b;
+    border-radius: 2px;
+}
+
+.books {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.book {
+    width: 50px;
+    height: 8px;
+    border-radius: 2px;
+}
+
+.book-1 {
+    background: #e74c3c;
+    margin-left: 5px;
+}
+
+.book-2 {
+    background: #3498db;
+    margin-left: 2px;
+}
+
+.book-3 {
+    background: #2ecc71;
+    margin-left: 8px;
+}
+
 .education-section {
     background: #f8f9fa;
     padding: 32px 0 24px 0;
-    margin-top: 32px;
+    margin-top: 0;
 }
 
 .education-content {
@@ -895,5 +998,24 @@ footer {
     }
     .bio-section {
         padding: 24px 4vw 0 4vw;
+    }
+    
+    /* Mobile Education Banner */
+    .education-banner {
+        padding: 40px 4vw;
+    }
+    
+    .banner-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .banner-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .banner-graphics {
+        align-items: center;
     }
 } 
