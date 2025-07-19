@@ -1,6 +1,20 @@
 // Main JavaScript for Md Jahid Hasan Jone's website
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Set active navigation based on current page
+    function setActiveNavigation() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('nav a');
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === currentPage || (currentPage === 'index.html' && href === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    }
+
     // Simple navigation function
     function navigateToSection(sectionId) {
         const section = document.getElementById(sectionId);
@@ -16,11 +30,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Get the section ID from href
             const href = this.getAttribute('href');
+            
+            // Only prevent default for hash links (same page navigation)
             if (href && href.startsWith('#')) {
+                e.preventDefault();
                 const sectionId = href.substring(1);
                 
                 // Update active state
@@ -29,10 +43,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 // Navigate to section
                 navigateToSection(sectionId);
+            } else if (href && href.endsWith('.html')) {
+                // For HTML page links, allow normal navigation
+                // Update active state before navigation
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Let the browser handle the navigation
+                console.log('Navigating to:', href);
             }
         });
     });
 
+    // Set active navigation on page load
+    setActiveNavigation();
+    
     // Test navigation on page load
     console.log('Navigation script loaded');
     console.log('Available sections:', Array.from(document.querySelectorAll('section[id]')).map(s => s.id));
