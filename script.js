@@ -2,26 +2,49 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('nav a');
+    
+    // Handle navigation clicks
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            // Ignore 'More' dropdown
-            if (link.textContent.trim().toLowerCase().startsWith('more')) return;
-            // Get the text and map to section id
-            const text = link.textContent.trim().toLowerCase();
-            let sectionId = '';
-            if (text === 'home') sectionId = 'home';
-            else if (text === 'education') sectionId = 'education';
-            else if (text === 'experiences') sectionId = 'experiences';
-            else if (text === 'projects') sectionId = 'projects';
-            else if (text === 'publications') sectionId = 'publications';
-            else return;
-            const section = document.getElementById(sectionId);
-            if (section) {
-                e.preventDefault();
-                section.scrollIntoView({ behavior: 'smooth' });
+            e.preventDefault();
+            
+            // Get the href attribute
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                const sectionId = href.substring(1); // Remove the #
+                const section = document.getElementById(sectionId);
+                
+                if (section) {
+                    // Smooth scroll to section
+                    section.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Update active navigation link
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    this.classList.add('active');
+                }
             }
         });
     });
+    
+    // Update active navigation based on scroll position
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section[id]');
+        const scrollPos = window.scrollY + 100; // Offset for header
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
     });
 
     // Education section editing functionality
