@@ -198,6 +198,24 @@ nav a.active, nav a:hover {
     margin-bottom: 8px;
 }
 
+.board-link {
+    color: #6c7a89;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.board-link:hover {
+    color: #2196f3;
+    text-decoration: underline;
+}
+
+.board-link i {
+    font-size: 0.9rem;
+}
+
 .education-description {
     font-size: 1rem;
     color: #666;
