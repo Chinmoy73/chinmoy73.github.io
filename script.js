@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Add click event listeners to all navigation links
-    const navLinks = document.querySelectorAll('nav a');
+    // Add click event listeners to all navigation links (excluding dropdown toggle)
+    const navLinks = document.querySelectorAll('nav a:not(.dropdown-toggle)');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -54,6 +54,19 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // Handle dropdown toggle click (prevent navigation)
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Toggle dropdown visibility
+            const dropdownMenu = this.nextElementSibling;
+            if (dropdownMenu) {
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            }
+        });
+    }
 
     // Set active navigation on page load
     setActiveNavigation();
