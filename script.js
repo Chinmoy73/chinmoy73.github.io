@@ -22,4 +22,30 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+    });
+
+    // Education section editing functionality
+    const editableElements = document.querySelectorAll('[contenteditable="true"]');
+    
+    editableElements.forEach(element => {
+        // Add a subtle indicator that content is editable
+        element.addEventListener('mouseenter', function() {
+            this.style.transition = 'all 0.2s ease';
+        });
+        
+        // Save changes to localStorage when user finishes editing
+        element.addEventListener('blur', function() {
+            const key = this.className + '_' + this.textContent.substring(0, 20);
+            localStorage.setItem(key, this.textContent);
+        });
+        
+        // Load saved content if available
+        element.addEventListener('focus', function() {
+            const key = this.className + '_' + this.textContent.substring(0, 20);
+            const saved = localStorage.getItem(key);
+            if (saved && saved !== this.textContent) {
+                this.textContent = saved;
+            }
+        });
+    });
 }); 

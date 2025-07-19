@@ -147,6 +147,81 @@ nav a.active, nav a:hover {
     text-align: justify;
 }
 
+.education-section {
+    background: #f8f9fa;
+    padding: 32px 0 24px 0;
+    margin-top: 32px;
+}
+
+.education-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 10vw;
+}
+
+.education-item {
+    background: #fff;
+    padding: 24px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-left: 4px solid #6c7a89;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.degree-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+}
+
+.education-year {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6c7a89;
+    background: #f0f2f5;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.institution {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.education-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Editable content styling */
+[contenteditable="true"]:hover {
+    background: #f8f9fa;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin: -2px -4px;
+    cursor: text;
+}
+
+[contenteditable="true"]:focus {
+    background: #e3f2fd;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin: -2px -4px;
+    outline: none;
+    border: 1px solid #2196f3;
+}
+
 .highlights-section, .recent-activities-section {
     background: #6c7a89;
     color: #fff;
