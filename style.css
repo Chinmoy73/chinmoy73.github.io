@@ -129,6 +129,24 @@ nav a.active, nav a:hover {
     padding-left: 20px;
 }
 
+.research-interests {
+    margin-top: 12px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.research-interests li {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    color: #222;
+    font-weight: 400;
+    text-align: justify;
+}
+
 .highlights-section, .recent-activities-section {
     background: #6c7a89;
     color: #fff;
