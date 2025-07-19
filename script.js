@@ -1,51 +1,41 @@
 // Main JavaScript for Md Jahid Hasan Jone's website
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Simple navigation function
+    function navigateToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+            console.log('Navigating to:', sectionId); // Debug log
+        } else {
+            console.log('Section not found:', sectionId); // Debug log
+        }
+    }
+
+    // Add click event listeners to all navigation links
     const navLinks = document.querySelectorAll('nav a');
-    
-    // Handle navigation clicks
     navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Get the href attribute
+            // Get the section ID from href
             const href = this.getAttribute('href');
             if (href && href.startsWith('#')) {
-                const sectionId = href.substring(1); // Remove the #
-                const section = document.getElementById(sectionId);
+                const sectionId = href.substring(1);
                 
-                if (section) {
-                    // Smooth scroll to section
-                    section.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Update active navigation link
-                    navLinks.forEach(navLink => navLink.classList.remove('active'));
-                    this.classList.add('active');
-                }
+                // Update active state
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Navigate to section
+                navigateToSection(sectionId);
             }
         });
     });
-    
-    // Update active navigation based on scroll position
-    window.addEventListener('scroll', function() {
-        const sections = document.querySelectorAll('section[id]');
-        const scrollPos = window.scrollY + 100; // Offset for header
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + sectionId) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    });
+
+    // Test navigation on page load
+    console.log('Navigation script loaded');
+    console.log('Available sections:', Array.from(document.querySelectorAll('section[id]')).map(s => s.id));
 
     // Education section editing functionality
     const editableElements = document.querySelectorAll('[contenteditable="true"]');
